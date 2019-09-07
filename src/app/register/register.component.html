@@ -1,1 +1,48 @@
-<p>register works!</p>
+<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" name="name" />
+      <mat-error *ngIf="submitted && registerForm.controls.name.errors">
+        <span *ngIf="registerForm.controls.name.errors.required"> Please enter your name </span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Email Id" formControlName="email" name="email" />
+    <mat-error *ngIf="submitted && registerForm.controls.email.errors">
+      <span *ngIf="registerForm.controls.email.errors.required"> Please enter your email Id </span>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Contact Number" formControlName="contact" name="contact" />
+      <mat-error *ngIf="submitted && registerForm.controls.contact.errors">
+        <span *ngIf="registerForm.controls.contact.errors.required"> Please enter your contact number</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Address" formControlName="address" name="address" />
+      <mat-error *ngIf="submitted && registerForm.controls.address.errors">
+        <span *ngIf="registerForm.controls.address.errors.required"> Please enter Address</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" name="password" />
+      <mat-error *ngIf="submitted && registerForm.controls.password.errors">
+        <span *ngIf="registerForm.controls.password.errors.required"> Please enter Password</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button [disabled]="loading" mat-raised-button color="primary">
+      Register
+    </button>
+    <a mat-button routerLink="/login">Login</a>
+  </div>
+</form>
