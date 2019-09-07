@@ -1,7 +1,13 @@
 // import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule,
+  MatTooltipModule
+} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -17,13 +23,23 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { UserRatingComponent } from './user-rating/user-rating.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, ExploreComponent, MovieDetailComponent, UserRatingComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    ExploreComponent,
+    MovieDetailComponent,
+    UserRatingComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
