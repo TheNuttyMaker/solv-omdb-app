@@ -11,9 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { mockBackendProvider } from './mock-backend';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ExploreComponent } from './explore/explore.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { UserRatingComponent } from './user-rating/user-rating.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, ExploreComponent, MovieDetailComponent, UserRatingComponent],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
