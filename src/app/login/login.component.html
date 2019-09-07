@@ -1,0 +1,25 @@
+<h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Email Id" formControlName="email" name="email" />
+      <mat-error *ngIf="submitted && loginForm.controls.email.errors">
+        <span *ngIf="loginForm.controls.email.errors.required"> Please enter Email Id </span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" name="password" />
+      <mat-error *ngIf="submitted && loginForm.controls.password.errors">
+        <span *ngIf="loginForm.controls.username.password.required"> Please enter Password</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button [disabled]="loading" mat-raised-button color="primary">
+      Login
+    </button>
+    <a routerLink="/register">Register</a>
+  </div>
+</form>
