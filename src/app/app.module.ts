@@ -6,7 +6,8 @@ import {
   MatInputModule,
   MatButtonModule,
   MatIconModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCardModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,6 +42,7 @@ import { UserRatingComponent } from './user-rating/user-rating.component';
     MatButtonModule,
     FlexLayoutModule,
     MatIconModule,
+    MatCardModule,
     MatTooltipModule,
     ReactiveFormsModule,
     HttpClientModule
