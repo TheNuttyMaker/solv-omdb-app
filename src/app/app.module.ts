@@ -8,6 +8,7 @@ import {
   MatIconModule,
   MatTooltipModule
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -38,6 +39,7 @@ import { UserRatingComponent } from './user-rating/user-rating.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    FlexLayoutModule,
     MatIconModule,
     MatTooltipModule,
     ReactiveFormsModule,
