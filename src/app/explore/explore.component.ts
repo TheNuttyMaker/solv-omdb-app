@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { OmdbService } from '../services/omdb.service';
-import { forkJoin } from 'rxjs';
 import { MoviesResponse } from '../models/movie-response';
 import { Movie } from '../models/movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PageEvent, MatPaginator } from '@angular/material';
 import { Router } from '@angular/router';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-explore',
@@ -23,14 +23,18 @@ export class ExploreComponent implements OnInit {
   totalResults = 0;
   pageSizeOptions: number[] = [10];
 
-  constructor(private router: Router, private omdbService: OmdbService) {}
+  constructor(
+    private router: Router,
+    private omdbService: OmdbService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.searchForm = new FormGroup({
       title: new FormControl('toy story', [Validators.required]),
       year: new FormControl(null)
     });
-
+    this.alertService.info('Loading Movies!');
     this.fetchMovies();
   }
 

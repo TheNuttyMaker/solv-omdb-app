@@ -27,6 +27,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { UserRatingComponent } from './user-rating/user-rating.component';
 import { HomeComponent } from './home/home.component';
 
+import { AlertModule } from 'ngx-alerts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,8 @@ import { HomeComponent } from './home/home.component';
     MatSliderModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

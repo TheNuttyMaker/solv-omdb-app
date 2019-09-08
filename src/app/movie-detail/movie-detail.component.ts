@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OmdbService } from '../services/omdb.service';
 import { Movie } from '../models/movie';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,7 +14,11 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   rating = 1;
   category: string;
-  constructor(private route: ActivatedRoute, private omdbService: OmdbService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private omdbService: OmdbService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.imdbId = this.route.snapshot.paramMap.get('imdbID');
@@ -44,9 +49,11 @@ export class MovieDetailComponent implements OnInit {
     this.omdbService.saveMovieInLocal(this.movie).subscribe(
       response => {
         console.log('success', response);
+        this.alertService.success('Movie Rating and Category saved successfully!');
       },
       error => {
         console.log('error', error);
+        this.alertService.danger(`Error ${error}`);
       }
     );
   }
