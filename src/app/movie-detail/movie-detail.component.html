@@ -1,1 +1,29 @@
-<p>movie-detail works!</p>
+<section>
+  <div class="movie_card">
+    <div class="info_section">
+      <div class="movie_header">
+        <img class="poster" src="{{movie?.Poster}}" />
+        <h1>{{movie?.Title}}</h1>
+        <h4>{{movie?.Year}} {{movie?.Director}}</h4>
+        <span class="minutes">{{movie?.Runtime}}</span>
+        <p class="type">{{movie?.Genre}}</p>
+      </div>
+      <div class="movie_desc">
+        <p class="text">
+          {{movie?.Plot}}
+        </p>
+      </div>
+      <div class="movie_rating">
+        <mat-slider class="slider" color="primary" [max]="10" [min]="0" step="1" thumbLabel="true" [(ngModel)]="rating">
+        </mat-slider>
+        <div>
+          <button class="mr-10 category-button">Less</button>
+          <button class="category-button mr-10">Very</button>
+          <button class="category-button">Extremely Likely</button>
+        </div>
+      </div>
+    </div>
+    <div class="blur_back" [style.background]="'url('+movie?.Poster+')'"></div>
+  </div>
+
+</section>

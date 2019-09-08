@@ -8,10 +8,11 @@ import {
   MatIconModule,
   MatTooltipModule,
   MatCardModule,
+  MatSliderModule,
   MatPaginatorModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +49,9 @@ import { HomeComponent } from './home/home.component';
     MatCardModule,
     MatTooltipModule,
     MatPaginatorModule,
+    MatSliderModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [

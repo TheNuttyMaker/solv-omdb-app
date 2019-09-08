@@ -10,6 +10,8 @@ import { Movie } from '../models/movie';
 })
 export class MovieDetailComponent implements OnInit {
   imdbId: string;
+  movie: Movie;
+  rating = 1;
   constructor(private route: ActivatedRoute, private omdbService: OmdbService) {}
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class MovieDetailComponent implements OnInit {
   getMovie(imdbID: string) {
     this.omdbService.getMovie(imdbID).subscribe(
       (movie: Movie) => {
+        this.movie = movie;
         console.log(movie);
       },
       error => {

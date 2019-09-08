@@ -2,25 +2,29 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+button:focus {
+  outline: 0;
+}
+
 .mt-10 {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .mr-10 {
-  margin-right: 10px;
+  margin-right: 10px !important;
 }
 .mb-10 {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
 }
 .ml-10 {
-  margin-left: 10px;
+  margin-left: 10px !important;
 }
 
 .mt-30 {
-  margin-top: 30px;
+  margin-top: 30px !important;
 }
 
 .card {
-  width: 400px;
+  width: 400px !important;
   margin: 10% auto;
 }
 
@@ -29,9 +33,9 @@
 }
 
 .fs-14 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .fs-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
