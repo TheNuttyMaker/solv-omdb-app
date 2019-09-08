@@ -1,1 +1,27 @@
-<p>dashboard works!</p>
+  <section class="mt-30">
+
+    <div class="center" fxLayout="row" fxLayoutAlign="center center" *ngIf="!movies.length">
+      <div fxFlex> No Movies Available. Go to <a routerLink="/explore">Explore</a> and
+        Review</div>
+    </div>
+    <!-- Movie cards -->
+    <div *ngIf="movies.length">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="110px"> <button mat-button color="accent">Delete All Movies</button></div>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result--item" *ngFor="let movie of movies">
+          <div (click)="onMovieClick(movie?.imdbID)">
+            <img [src]="movie?.Poster=== 'N/A' ? 'assets/placeholder-image.png': movie?.Poster" />
+            <div class="fs-16 title" [matTooltip]="movie?.Title"><b>Title:</b> {{movie?.Title}}</div>
+            <div class="fs-16 year"><b>Year:</b> {{movie?.Year}}</div>
+            <div class="fs-16 type"><b>Type:</b> {{movie?.Type}}</div>
+            <div class="fs-16 type"><b>Imdb Rating:</b> {{movie?.imdbRating}}</div>
+            <div class="fs-16 type"><b>User Rating:</b> {{movie?.userRating}}</div>
+            <div class="fs-16 type"><b>User Category:</b> {{movie?.userCategory}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>

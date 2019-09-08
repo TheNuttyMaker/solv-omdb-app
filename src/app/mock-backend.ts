@@ -99,9 +99,6 @@ export class MockBackendInterceptor implements HttpInterceptor {
     // Functions for handling OMDB movies data
 
     function getMovies() {
-      if (!isLoggedIn()) {
-        return unauthorized();
-      }
       return ok(movies);
     }
 
