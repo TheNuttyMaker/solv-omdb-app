@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OmdbService } from '../services/omdb.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-explore',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
+  movies = [];
 
-  constructor() { }
+  constructor(private omdbService: OmdbService) {}
 
   ngOnInit() {
+    this.omdbService.getMovies({ title: 'Batman', year: '1980' }).subscribe(response => {
+      console.log(response);
+    });
   }
-
 }
