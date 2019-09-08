@@ -32,10 +32,12 @@
   <!-- Movie cards -->
   <div class="search-result-container">
     <div class="search-result--item" *ngFor="let movie of movies">
-      <img [src]="movie.Poster=== 'N/A' ? 'assets/placeholder-image.png': movie.Poster" />
-      <div class="fs-16 title" [matTooltip]="movie.Title"><b>Title:</b> {{movie.Title}}</div>
-      <div class="fs-16 year"><b>Year:</b> {{movie.Year}}</div>
-      <div class="fs-16 type"><b>Type:</b> {{movie.Type}}</div>
+      <div (click)="onMovieClick(movie.imdbID)">
+        <img [src]="movie.Poster=== 'N/A' ? 'assets/placeholder-image.png': movie.Poster" />
+        <div class="fs-16 title" [matTooltip]="movie.Title"><b>Title:</b> {{movie.Title}}</div>
+        <div class="fs-16 year"><b>Year:</b> {{movie.Year}}</div>
+        <div class="fs-16 type"><b>Type:</b> {{movie.Type}}</div>
+      </div>
     </div>
   </div>
 

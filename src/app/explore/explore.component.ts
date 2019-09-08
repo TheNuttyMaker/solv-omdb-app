@@ -5,6 +5,7 @@ import { MoviesResponse } from '../models/movie-response';
 import { Movie } from '../models/movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PageEvent, MatPaginator } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-explore',
@@ -22,7 +23,7 @@ export class ExploreComponent implements OnInit {
   totalResults = 0;
   pageSizeOptions: number[] = [10];
 
-  constructor(private omdbService: OmdbService) {}
+  constructor(private router: Router, private omdbService: OmdbService) {}
 
   ngOnInit() {
     this.searchForm = new FormGroup({
@@ -51,6 +52,10 @@ export class ExploreComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     console.log('submit');
+  }
+
+  onMovieClick(imdbId: string) {
+    this.router.navigate(['/detail', imdbId]);
   }
 
   pageChange(paginationData: PageEvent) {

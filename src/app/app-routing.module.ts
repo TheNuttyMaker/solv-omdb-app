@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'explore',
         component: ExploreComponent
+      },
+      {
+        path: 'detail',
+        children: [{ path: ':imdbID', component: MovieDetailComponent }]
       },
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' }
     ]
