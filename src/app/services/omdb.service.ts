@@ -43,4 +43,8 @@ export class OmdbService {
   getMoviesFromLocal() {
     return this.http.get(`/movies`);
   }
+
+  deleteAllMoviesFromLocal() {
+    return this.http.delete(`/movies`);
+  }
 }

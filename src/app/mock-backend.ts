@@ -42,6 +42,8 @@ export class MockBackendInterceptor implements HttpInterceptor {
           return saveMovie();
         case url.endsWith('/movies') && method === 'GET':
           return getMovies();
+        case url.match('/movies') && method === 'DELETE':
+          return deleteMovies();
         default:
           return next.handle(request);
       }
@@ -115,6 +117,11 @@ export class MockBackendInterceptor implements HttpInterceptor {
       localStorage.setItem('movies', JSON.stringify(movies));
 
       return ok();
+    }
+
+    function deleteMovies() {
+      localStorage.setItem('movies', JSON.stringify([]));
+      return ok(movies);
     }
 
     // helper functions

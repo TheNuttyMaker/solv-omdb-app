@@ -7,7 +7,7 @@
     <!-- Movie cards -->
     <div *ngIf="movies.length">
       <div fxLayout="row" fxLayoutAlign="center center">
-        <div fxFlex="110px"> <button mat-button color="accent">Delete All Movies</button></div>
+        <div fxFlex="110px"> <button mat-button color="accent" (click)="deleteMovies()">Delete All Movies</button></div>
       </div>
       <div class="search-result-container">
         <div class="search-result--item" *ngFor="let movie of movies">

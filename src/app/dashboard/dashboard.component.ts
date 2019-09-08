@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Movie } from '../models/movie';
 import { OmdbService } from '../services/omdb.service';
 
@@ -8,8 +8,8 @@ import { OmdbService } from '../services/omdb.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  constructor(private omdbService: OmdbService, private ngZone: NgZone) {}
   movies: Movie[] = [];
-  constructor(private omdbService: OmdbService) {}
 
   ngOnInit() {
     this.fetchMovies();
@@ -19,6 +19,13 @@ export class DashboardComponent implements OnInit {
     this.omdbService.getMoviesFromLocal().subscribe((movies: Movie[]) => {
       this.movies = movies;
       console.log(this.movies);
+    });
+  }
+
+  deleteMovies() {
+    this.omdbService.deleteAllMoviesFromLocal().subscribe((movies: Movie[]) => {
+      console.log('Movies deleted');
+      this.movies = new Array();
     });
   }
 }
