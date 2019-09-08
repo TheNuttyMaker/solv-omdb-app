@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExploreComponent } from './explore/explore.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { UserRatingComponent } from './user-rating/user-rating.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserRatingComponent } from './user-rating/user-rating.component';
     DashboardComponent,
     ExploreComponent,
     MovieDetailComponent,
-    UserRatingComponent
+    UserRatingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserAnimationsModule,
