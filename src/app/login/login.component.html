@@ -5,15 +5,16 @@
       <mat-form-field class="full-width">
         <input matInput placeholder="Email Id" formControlName="email" name="email" />
         <mat-error *ngIf="submitted && loginForm.controls.email.errors">
-          <span *ngIf="loginForm.controls.email.errors.required"> Please enter Email Id </span>
+          <span *ngIf="loginForm.controls.email.errors?.required"> Please enter Email Id </span>
+          <span *ngIf="loginForm.controls.email.errors?.pattern"> Please enter valid Email Id </span>
         </mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Password" formControlName="password" name="password" />
+        <input matInput type="password" placeholder="Password" formControlName="password" name="password" />
         <mat-error *ngIf="submitted && loginForm.controls.password.errors">
-          <span *ngIf="loginForm.controls.password.errors.required"> Please enter Password</span>
+          <span *ngIf="loginForm.controls.password.errors?.required"> Please enter Password</span>
         </mat-error>
       </mat-form-field>
     </div>

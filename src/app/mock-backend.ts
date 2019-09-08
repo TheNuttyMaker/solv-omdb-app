@@ -10,9 +10,12 @@ import {
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { User } from './models/user';
+import { Movie } from './models/movie';
 
 // get registered users from local storage
 let users: User[] = JSON.parse(localStorage.getItem('users')) || [];
+
+const movies: Movie[] = JSON.parse(localStorage.getItem('movies')) || [];
 
 @Injectable()
 export class MockBackendInterceptor implements HttpInterceptor {
@@ -35,6 +38,10 @@ export class MockBackendInterceptor implements HttpInterceptor {
           return getUsers();
         case url.match(/\/users\/\d+$/) && method === 'DELETE':
           return deleteUser();
+        case url.endsWith('/movie') && method === 'POST':
+          return saveMovie();
+        case url.endsWith('/movies') && method === 'GET':
+          return getMovies();
         default:
           return next.handle(request);
       }
@@ -86,6 +93,30 @@ export class MockBackendInterceptor implements HttpInterceptor {
 
       users = users.filter(x => x.id !== idFromUrl());
       localStorage.setItem('users', JSON.stringify(users));
+      return ok();
+    }
+
+    // Functions for handling OMDB movies data
+
+    function getMovies() {
+      if (!isLoggedIn()) {
+        return unauthorized();
+      }
+      return ok(movies);
+    }
+
+    function saveMovie() {
+      const movie: Movie = body;
+
+      const movieIndex = movies.findIndex(x => x.imdbID === movie.imdbID);
+      if (movieIndex >= 0) {
+        movies.splice(movieIndex, 1, movie);
+      } else {
+        movies.push(movie);
+      }
+
+      localStorage.setItem('movies', JSON.stringify(movies));
+
       return ok();
     }
 

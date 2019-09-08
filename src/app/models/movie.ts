@@ -5,6 +5,7 @@ export class Movie {
   Year: string;
   imdbID: string;
 
+  id?: number;
   Actors?: string;
   Awards?: string;
   BoxOffice?: string;
@@ -29,6 +30,9 @@ export class Movie {
   imdbVotes?: string;
 
   Ratings?: Rating[] | [];
+
+  userRating?: number;
+  userCategory?: string;
 }
 
 export class Rating {

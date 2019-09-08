@@ -8,7 +8,7 @@
   display: block;
   width: 800px;
   height: 350px;
-  margin: 80px auto;
+  margin: 80px auto 20px auto;
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
@@ -113,12 +113,22 @@
   }
 }
 
+.save-wrapper {
+  margin: auto;
+  margin-bottom: 80px;
+  width: 800px;
+}
+
 @media screen and (max-width: 768px) {
   .movie_card {
     width: 95%;
     margin: 70px auto;
     min-height: 350px;
     height: auto;
+  }
+
+  .save-wrapper {
+    width: 95%;
   }
 
   .blur_back {

@@ -17,13 +17,24 @@
         <mat-slider class="slider" color="primary" [max]="10" [min]="0" step="1" thumbLabel="true" [(ngModel)]="rating">
         </mat-slider>
         <div>
-          <button class="mr-10 category-button">Less</button>
-          <button class="category-button mr-10">Very</button>
-          <button class="category-button">Extremely Likely</button>
+          <button class="mr-10 category-button" (click)="selectCategory('Less')"
+            [ngClass]="{'selected-button': category==='Less'}">Less</button>
+          <button class="category-button mr-10" (click)="selectCategory('Very')"
+            [ngClass]="{'selected-button': category==='Very'}">Very</button>
+          <button class="category-button" (click)="selectCategory('Extremely Likely')"
+            [ngClass]="{'selected-button': category==='Extremely Likely'}">Extremely Likely</button>
         </div>
       </div>
     </div>
     <div class="blur_back" [style.background]="'url('+movie?.Poster+')'"></div>
   </div>
+
+  <div class="save-wrapper">
+    <button [disabled]="!category" mat-raised-button color="primary" (click)="saveUserInputs()">
+      Save User Rating & Category
+    </button>
+  </div>
+
+
 
 </section>

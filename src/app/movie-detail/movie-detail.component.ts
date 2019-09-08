@@ -12,6 +12,7 @@ export class MovieDetailComponent implements OnInit {
   imdbId: string;
   movie: Movie;
   rating = 1;
+  category: string;
   constructor(private route: ActivatedRoute, private omdbService: OmdbService) {}
 
   ngOnInit() {
@@ -29,6 +30,23 @@ export class MovieDetailComponent implements OnInit {
       },
       error => {
         console.log(error);
+      }
+    );
+  }
+
+  selectCategory(category: string) {
+    this.category = category;
+  }
+
+  saveUserInputs() {
+    this.movie.userRating = this.rating;
+    this.movie.userCategory = this.category;
+    this.omdbService.saveMovieInLocal(this.movie).subscribe(
+      response => {
+        console.log('success', response);
+      },
+      error => {
+        console.log('error', error);
       }
     );
   }

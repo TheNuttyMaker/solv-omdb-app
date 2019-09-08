@@ -52,6 +52,7 @@ export class ExploreComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     console.log('submit');
+    this.fetchMovies();
   }
 
   onMovieClick(imdbId: string) {
