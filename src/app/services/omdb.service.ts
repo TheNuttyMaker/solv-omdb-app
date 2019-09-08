@@ -22,10 +22,13 @@ export class OmdbService {
     }
   }
 
-  getMovies = (searchParam: { title: string; year: string }): Observable<MoviesResponse> => {
+  getMovies = (
+    searchParam: { title: string; year: string },
+    page: number
+  ): Observable<MoviesResponse> => {
     if (searchParam && (searchParam.title || searchParam.year)) {
       return this.http.get<MoviesResponse>(
-        `${baseUrl}/?apikey=${apiKey}&s=${searchParam.title}&y=${searchParam.year}`
+        `${baseUrl}/?apikey=${apiKey}&s=${searchParam.title}&y=${searchParam.year}&page=${page}`
       );
     } else {
       throw new Error('Nothing to search!');

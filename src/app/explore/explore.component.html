@@ -39,6 +39,8 @@
     </div>
   </div>
 
+  <mat-paginator (page)="pageChange($event)" [pageSizeOptions]="pageSizeOptions" [length]="totalResults"
+    showFirstLastButtons></mat-paginator>
 
 
 </section>

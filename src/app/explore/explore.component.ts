@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OmdbService } from '../services/omdb.service';
 import { forkJoin } from 'rxjs';
 import { MoviesResponse } from '../models/movie-response';
 import { Movie } from '../models/movie';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PageEvent, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-explore',
@@ -11,9 +12,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   searchForm: FormGroup;
   movies: Movie[] = [];
   submitted = false;
+
+  paginationData: PageEvent;
+  totalResults = 0;
+  pageSizeOptions: number[] = [10];
 
   constructor(private omdbService: OmdbService) {}
 
@@ -23,10 +30,18 @@ export class ExploreComponent implements OnInit {
       year: new FormControl(null)
     });
 
-    this.omdbService.getMovies(this.searchForm.value).subscribe((response: MoviesResponse) => {
-      this.movies = response.Search.slice(3);
-      console.log(this.movies);
-    });
+    this.fetchMovies();
+  }
+
+  fetchMovies() {
+    const pageIndex = this.paginator.pageIndex + 1;
+    this.omdbService
+      .getMovies(this.searchForm.value, pageIndex)
+      .subscribe((response: MoviesResponse) => {
+        this.movies = response.Search;
+        this.totalResults = +response.totalResults;
+        console.log(this.movies);
+      });
   }
 
   clear() {
@@ -36,5 +51,10 @@ export class ExploreComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     console.log('submit');
+  }
+
+  pageChange(paginationData: PageEvent) {
+    this.paginationData = paginationData;
+    this.fetchMovies();
   }
 }

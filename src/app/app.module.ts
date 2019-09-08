@@ -7,7 +7,8 @@ import {
   MatButtonModule,
   MatIconModule,
   MatTooltipModule,
-  MatCardModule
+  MatCardModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -46,6 +47,7 @@ import { HomeComponent } from './home/home.component';
     MatIconModule,
     MatCardModule,
     MatTooltipModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
