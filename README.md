@@ -1,6 +1,8 @@
 # SolvOmdbApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+You can see the demo from this [Stackblitz Link](https://stackblitz.com/github/TheNuttyMaker/solv-omdb-app)
+
 
 ## Development server
 
