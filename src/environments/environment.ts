@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   omdb: {
-    baseUrl: 'http://www.omdbapi.com',
+    baseUrl: 'https://www.omdbapi.com',
     apiKey: 'a3ca4026'
   }
 };
