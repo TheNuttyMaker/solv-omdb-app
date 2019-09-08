@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { MoviesResponse } from '../models/movie-response';
 
 const {
   omdb: { baseUrl, apiKey }
@@ -20,9 +22,9 @@ export class OmdbService {
     }
   }
 
-  getMovies = (searchParam: { title: string; year: string }) => {
+  getMovies = (searchParam: { title: string; year: string }): Observable<MoviesResponse> => {
     if (searchParam && (searchParam.title || searchParam.year)) {
-      return this.http.get(
+      return this.http.get<MoviesResponse>(
         `${baseUrl}/?apikey=${apiKey}&s=${searchParam.title}&y=${searchParam.year}`
       );
     } else {

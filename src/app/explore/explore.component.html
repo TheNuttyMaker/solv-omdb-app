@@ -1,1 +1,44 @@
-<p>explore works!</p>
+<section class="mt-30">
+  <!-- Search Filter -->
+  <div class="filter">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field fxFlex class="full-width">
+          <input matInput placeholder="Movie Name" formControlName="title" name="title" />
+          <mat-error *ngIf="submitted && searchForm.controls.title.errors">
+            <span *ngIf="searchForm.controls.title.errors.required"> Please enter movie name </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex class="full-width">
+          <input matInput placeholder="Year" formControlName="year" name="year" />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+        <div class="mr-10" fxFlex="64px">
+          <button type="button" mat-raised-button color="accent" (click)="clear()">
+            Clear
+          </button>
+        </div>
+        <div class="mr-10" fxFlex="64px">
+          <button type="submit" mat-raised-button color="primary">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Movie cards -->
+  <div class="search-result-container">
+    <div class="search-result--item" *ngFor="let movie of movies">
+      <img [src]="movie.Poster=== 'N/A' ? 'assets/placeholder-image.png': movie.Poster" />
+      <div class="fs-16 title" [matTooltip]="movie.Title"><b>Title:</b> {{movie.Title}}</div>
+      <div class="fs-16 year"><b>Year:</b> {{movie.Year}}</div>
+      <div class="fs-16 type"><b>Type:</b> {{movie.Type}}</div>
+    </div>
+  </div>
+
+
+
+</section>
