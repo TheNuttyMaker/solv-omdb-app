@@ -13,7 +13,7 @@ export class ExploreComponent implements OnInit {
   constructor(private omdbService: OmdbService) {}
 
   ngOnInit() {
-    this.omdbService.getMovies({ title: 'Batman', year: '1980' }).subscribe(response => {
+    this.omdbService.getMovies({ title: 'Wanted', year: '2007' }).subscribe(response => {
       console.log(response);
     });
   }
