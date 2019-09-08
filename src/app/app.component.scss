@@ -38,3 +38,13 @@ p {
 .toolbar img {
   margin: 0 16px;
 }
+
+.dashboard-link {
+  margin-left: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-link {
+    margin-left: 35px;
+  }
+}
