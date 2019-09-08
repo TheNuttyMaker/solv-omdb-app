@@ -1,7 +1,10 @@
 # SolvOmdbApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
-You can see the demo from this [Stackblitz Link](https://stackblitz.com/github/TheNuttyMaker/solv-omdb-app)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3. 
+
+You can see the demo from [Stackblitz Demo Link](https://vbwimxmgq.github.stackblitz.io/dashboard) and
+Demo with editor mode from [Stackblitz Editor Mode](https://stackblitz.com/github/TheNuttyMaker/solv-omdb-app)
+
 
 
 ## Development server
