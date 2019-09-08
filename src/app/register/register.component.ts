@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    , private alertService: AlertService
   ) {}
 
   ngOnInit() {
@@ -46,6 +48,7 @@ export class RegisterComponent implements OnInit {
         },
         error => {
           console.log('fail', error);
+          this.alertService.info(error.error.message);
         }
       );
   }

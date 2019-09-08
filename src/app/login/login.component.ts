@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit() {
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log('login error', error);
+          this.alertService.info(error.error.message);
         }
       );
   }
